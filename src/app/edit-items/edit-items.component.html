@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Enter Details To Edit :- </h2>
+    <form class="form-horizontal" #userForm="ngForm" (ngSubmit)="updateItem(userForm)">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="product">Product:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="product" placeholder="Enter product name" name="product" ngModel>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="category">Category:</label>
+        <div class="col-sm-10">          
+          <input type="text" class="form-control" id="category" placeholder="Enter Category" name="category" ngModel>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="price">Price:</label>
+        <div class="col-sm-10">          
+          <input type="text" class="form-control" id="price" placeholder="Enter Price" name="price" ngModel>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="available">Availability:</label>
+        <div class="col-sm-10">          
+          <input type="text" class="form-control" id="available" placeholder="Is Available" name="available" ngModel>
+        </div>
+      </div>
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success" (click)="updateItem(userForm)">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <router-outlet></router-outlet>

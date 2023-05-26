@@ -1,0 +1,55 @@
+<div class="container">
+  <form #userForm="ngForm" (ngSubmit)="searchItem(userForm)">
+    <div class="input-group rounded">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="search"
+      (click)="submit(userForm)" ngModel />
+      <span class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </form>
+  
+      <table class="table" *ngIf="purchase=='N'">
+        <thead>
+          <tr>
+            
+            <th>Product</th>
+            <th>Price</th>
+            <th>Available</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="flag==1">
+          <tr *ngFor="let todo of itemsList">
+            <td><img src="./assets/buiscuits.webp" style="height:150px;width: 150px;"></td>
+            <td>{{todo.product}} | {{todo.category}} | <p> <b>{{todo.price}} /-</b></p></td>
+            
+             
+            <td>{{todo.available}}</td>
+            <td><button (click)="btnClick()" type="button" class="btn btn-success" >  
+              Purchase </button></td>
+             
+          </tr>
+        </tbody>
+        <tbody *ngIf="flag==0">
+            <tr *ngFor="let todo of searchedItemsList">
+              <td><img src="./assets/buiscuits.webp" style="height:150px;width: 150px;"></td>
+              <td>{{todo.product}} | {{todo.category}} | <p> <b>{{todo.price}} /-</b></p></td>
+              
+               
+              <td>{{todo.available}}</td>
+              <td><button (click)="btnClick()" type="button" class="btn btn-success" >  
+                Purchase </button></td>
+               
+            </tr>
+          </tbody>
+      </table>
+      <div class="container" *ngIf="purchase == 'Y'">
+        <h3>Your Order has been Placed! Purchase More.</h3>
+        <button type="button" class="btn btn-success" (click)="pageReload()">
+          <span class="purchase-btn">Purchase More</span>
+        </button>
+      </div>
+    </div>
+  
+    <router-outlet></router-outlet>
+    

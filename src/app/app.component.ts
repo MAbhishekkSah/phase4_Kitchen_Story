@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ItemsServiceService } from './items-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Kitchen_Story';
+  pageChangeFlag:number = 0;
+
+  isClicked(flag:any){
+    console.log(flag);
+    if(flag == "Y")
+    {
+      this.pageChangeFlag = 1;
+      console.log("ind -> "+this.pageChangeFlag);
+    }
+  }
 }
